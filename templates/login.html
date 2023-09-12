@@ -1,0 +1,37 @@
+{% include 'base.html' %}
+
+
+<body>
+    {% include 'navbar.html' %}
+    {% block content %}
+    <section class="home">
+        <div class="home-content">
+            <h1> Hello, </h1>
+            <h3>I'm training now</h3>
+            <h3>Login page</h3>
+
+            <form method="post">
+                {% csrf_token %}
+                <table>
+                    <div>
+                        <input type="email", name='email', placeholder='email'>email</input>
+                      
+                    </div>
+                    <div>
+                        <input type="password" name='password' placeholder='password'>password</input>
+                        <button type="submit">Log In</button>
+                    </div>
+                    <a href="/accounts/register" class="buttonRegister">Register</a>
+                
+              </form>
+
+        </div>
+          
+    </section>
+    
+
+
+</body>
+{% endblock %}
+
+</html>
