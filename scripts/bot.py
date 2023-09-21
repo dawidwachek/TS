@@ -3,6 +3,7 @@ from discord_webhook import DiscordWebhook, DiscordEmbed
 questionnaire_webhook = DiscordWebhook(url="https://discord.com/api/webhooks/1149771983844810882/JYotV_QBjYAdNDzaIFdIOqZAFHTPl4XtylC6anUpb9OI7aFxkk9K8Z9LJBUItkIzNYNM")
 order_webhook = DiscordWebhook(url="https://discord.com/api/webhooks/1149810908340699176/ahQPkxkCMxP9SgKIPGyYaGX_fdwe9D2O_9xSi3z6GJyccUBBVSrvG1dYkhqmF-xv-7yx")
 new_account_webhook = DiscordWebhook(url="https://discord.com/api/webhooks/1149812465304076348/lk84ZYAqtEBYdOoFgcTtDWpDBtNU7hkHzJoHE738ob4309P417O_e_gJtD1a5tZweyvX")
+host_webhook = DiscordWebhook(url="https://discord.com/api/webhooks/1152704140737257554/Ik3JASjlnZ2xjifvG4NhcnkncmWLn585GNCAW5Xxia1J2t_kai8WGVGP1-cd4XeRLWkS")
 
 
 def QuestionnaireBot(questionnaire_id, user_email):
@@ -30,3 +31,9 @@ def NewUserBot(user_id, user_email, user_name):
     embed.add_embed_field(name="welcome", value=user_name, inline=False)
     new_account_webhook.add_embed(embed)
     new_account_webhook.execute()
+
+def HostBot():
+    embed = DiscordEmbed(title="Server Up!!", description="", color="00FF00")
+    embed.set_timestamp()
+    host_webhook.add_embed(embed)
+    host_webhook.execute()
