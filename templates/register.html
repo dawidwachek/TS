@@ -5,6 +5,7 @@
     {% block content %}
     <section class="home">
         <div class="home-content">
+            <h3>Register to Gym Perso</h3>
             <form method="post">
                 {% csrf_token %}
                 <table>
@@ -15,18 +16,6 @@
                     <div>
                         <input type="password" name='password' placeholder='password'>password</input>
                         
-                    </div>
-                    <div>
-                        <input type="text" name='name' placeholder='name'>name</input>
-                        
-                    </div>
-                    <div>
-                        <input type="phone", name='phone', placeholder='phone'>phone number</input>
-                      
-                    </div>
-                    <div>
-                        <input type="date", name='date', placeholder='date'>date birthday</input>
-                      
                     </div>
                     <div>
                         <button type="submit">Register</button>

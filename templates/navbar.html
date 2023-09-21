@@ -11,9 +11,11 @@
                 <a href="{% url 'page_logout' %}">Logout</a>
             {% else %}
                 <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
             {% endif %}
-            
-            <a href="/admin" class="buttonLogin">admin</a>
+            {% if user.is_admin %}
+                <a href="/admin" class="buttonLogin">admin</a>
+            {% endif %}
         </nav>
         
 </header> 

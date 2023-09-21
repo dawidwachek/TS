@@ -2,10 +2,15 @@
 
 :root {
     --clr-background: #ffffff;
-    --clr-text:#4e4f80;
+    --clr-text:#444444;
     --clr-secondary-text:#6d83ff;
     --clr-button-background: #c02afc;
     --clr-countainer-background: #7c7c7c93;
+    --clr-palette-1: #5EDB0F;
+    --clr-palette2:#4E524D;
+    --clr-palette3:#4E4F80;
+    --clr-palette4:#6E7868;
+    --clr-palette5:#1F2080;
 }
 
 
@@ -17,10 +22,68 @@
 }
 
 body{
+    margin: 0;
+    padding: 0;
     background: var(--clr-background);
     color: var(--clr-text);
 
 }
+
+.body{
+    align-content: flex-start;
+    height: 100vh;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    padding: 2% 8%;
+}
+
+.left_column{
+    padding: 3%;
+    margin: 3%;
+    border-radius: 1rem;
+    float: left;
+    width: 50%;
+}
+
+.right_column{
+    padding: 3%;
+    margin: 3%;
+    background-color: var(--clr-palette-1);
+    border-radius: 1rem;
+    float: left;
+    width: 50%;
+}
+
+.button{
+    margin-top: 15px;
+    padding: 4px 24px;
+    color:white;
+    background-color: var(--clr-palette-1);
+    border-color: var(--clr-palette-1);
+    border-radius: 1rem;
+    text-decoration: none;
+
+}
+
+.button_order{
+    margin-top: 15px;
+    padding: 4px 24px;
+    background-color: var(--clr-text);
+    border-color: var(--clr-text);
+    color: var(--clr-background); 
+    border-radius: 1rem;
+    text-decoration: none;
+}
+
+
+.order_container{
+    margin-top: 15px;
+}
+
+    
+
+
 
 .header{
     position: fixed;
@@ -53,6 +116,7 @@ body{
 }
 
 .navbar{
+    display: block;
     margin-right: 5%;
 }
 
@@ -72,6 +136,7 @@ body{
 }
 
 .home{
+    align-content: flex-start;
     height: 100vh;
     display: flex;
     justify-content: space-between;
@@ -79,10 +144,6 @@ body{
     padding: 0 10%;
 }
 
-.home-content{
-    max-width: 600px;
-    align-items: center;
-}
 
 
 .auth-container{
@@ -208,6 +269,11 @@ form .txt-field{
 }
 
 @media screen and (max-width: 450px) {
+
+    .body{
+        font-size: 14px;
+    }
+    
     
     .auth-container{
         width: 300px;

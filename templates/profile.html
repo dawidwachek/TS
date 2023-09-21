@@ -1,16 +1,56 @@
 {% include 'base.html' %}
 
 
+
+
 <body>
     {% include 'navbar.html' %}
     {% block content %}
-    <section class="home">
-        <div class="home-content">
-            <h1> Hello {{name_value}}, </h1>
-            <h3>I'm training now</h3>
-            <h3>Profile page </h3>
 
-            <a href="/questionnaire" class="buttonFirstQuestionnaire">First questionnaire</a>
+    
+    
+    <section class="body">
+        <div class="left_column">
+            <h1> Hello {{user_proxy.first_name}}, </h1>
+            <div>
+                <h5> Name: {{user_proxy.first_name}} {{user_proxy.last_name}} </h5>
+            </div>
+            <div>
+                <h5> E-mail adress: {{user_proxy.email}} </h5>
+            </div>
+            <div> 
+                <h5>Phone number: {{user_proxy.phone_number}} </h5>
+            </div>
+
+            <div class="button-container">
+                <a type="submit" href="/questionnaire" class="button">Create new training</a>
+            </div>
+
+        </div>
+        <div class="right_column">
+            <div>
+                <div>
+                    <h5> Order list: </h5>
+                </div>
+                <div>
+                    {% for order in orders %}
+                        <div class="order_container">
+                            <h5>id: {{order.order_id}} </h5>
+                            <h5>order status: {{order.order_status}} </h5>
+                            <h5>pay price: {{order.pay_price}} </h5>
+                            <h5>created at: {{order.created_at}} </h5>
+                            <a type="submit" href="/orders" class="button_order">view order {{order.order_id}}</a>
+                        <div>
+                    {% endfor %}
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="home-content">
+
         </div>
 
         
