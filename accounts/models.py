@@ -73,14 +73,26 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class UserProxy(models.Model):
-    email = models.EmailField(max_length=100, unique=True)
-    date_birthday = models.DateField(null=True, blank=True)
     first_name = models.CharField(max_length=15, null=True, blank=True)
+    last_name = models.CharField(max_length=15, null=True, blank=True)
+    email = models.EmailField(max_length=100, unique=True)
     phone_number = models.DecimalField(max_digits=9, decimal_places=0, null=True, blank=True, default="123456789")
+
+    date_birthday = models.DateField(null=True, blank=True)
     first_step = models.BooleanField(default=True)
-    #last_name = models.CharField(max_length=15, null=True, blank=True, default="")
+   
+    regulations = models.BooleanField(default=False)
+    regulations_id = models.DecimalField(max_digits=3, decimal_places=0, null=True, blank=True)
     active_sub = models.BooleanField(default=False)
     id_sub = models.DecimalField(max_digits=7,decimal_places=0,blank=True, null=True)
+
+    price_base = models.DecimalField(max_digits=7, decimal_places=2, null=True)
+    price_id = models.DecimalField(max_digits=3, decimal_places=0, null=True, blank=True)
+
+    
+    
+    #last_name = models.CharField(max_length=15, null=True, blank=True, default="")
+    
 
     def __str__(self):
         return self.email

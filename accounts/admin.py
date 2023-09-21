@@ -19,12 +19,20 @@ class UserAdmin(admin.ModelAdmin):
 class UserProxyAdmin(admin.ModelAdmin):
     list_display = ['email','first_name', 'active_sub','first_step']
     fieldsets = [
-        ('User data', {
-            'fields':('email','first_name', 'date_birthday', 'phone_number','first_step')
+        ('Base data', {
+            'fields':('email','first_name', 'last_name', 'phone_number')
             }
         ),
-        ('Sub data', {
-            'fields':('active_sub', 'id_sub')
+        ('survey data', {
+            'fields':('date_birthday', 'first_step')
+            }
+        ),
+        ('consents data', {
+            'fields':('regulations', 'regulations_id', 'active_sub', 'id_sub')
+            }
+        ),
+        ('price data', {
+            'fields':('price_base', 'price_id')
             }
         ),
         

@@ -96,3 +96,6 @@ def faq(request):
     return render(request, 'faq.html', {})
 def contact(request):
     return render(request, 'contact.html', {})
+
+def error(request):
+    return render(request, 'error_page.html', {})
