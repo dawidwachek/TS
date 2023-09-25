@@ -26,6 +26,10 @@
                 <a type="submit" href="/questionnaire" class="button">Create new training</a>
             </div>
 
+            <div>
+                <h6>or write to support to consultation</h6>
+            </div>
+
         </div>
         <div class="right_column">
             <div>
@@ -34,13 +38,24 @@
                 </div>
                 <div>
                     {% for order in orders %}
-                        <div class="order_container">
-                            <h5>id: {{order.order_id}} </h5>
-                            <h5>order status: {{order.order_status}} </h5>
-                            <h5>pay price: {{order.pay_price}} </h5>
-                            <h5>created at: {{order.created_at}} </h5>
-                            <a type="submit" href="/orders" class="button_order">view order {{order.order_id}}</a>
-                        <div>
+                        {% if order.visible == True %}
+
+                            <div class="order_container">
+                                <div>
+                                    <h5>#{{order.order_id}} </h5>
+                                    <h5>order status: {{order.order_status}} </h5>
+                                    <h5>pay price: {{order.pay_price}} </h5>
+                                    <h5>created at: {{order.created_at}} </h5>
+                            
+                                <div>
+                                <div>
+                                    <a type="submit" href="/orders/{{order.order_id}}/" class="button_order">view order #{{order.order_id}}</a>
+                                </div>
+                            </div>
+
+
+                        {% endif %}
+                        
                     {% endfor %}
                 </div>
 
