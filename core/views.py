@@ -43,7 +43,7 @@ def questionnaire_basic(request):
             
             questionnaire_id = task.pk
             user_name = UserProxy.objects.get(email = request.user.email).first_name
-            price=100.00
+            price=100
             #creating order
             order = Order(email_adress = request.user.email, original_price=price, pay_price =price, user_name=user_name, questionnaire_id=questionnaire_id)
             order.save()
@@ -55,13 +55,13 @@ def questionnaire_basic(request):
 
             #bot discord
             QuestionnaireBot(questionnaire_id=questionnaire_id, user_email=request.user.email)
-            OrderBot(order_id=o_id, user_email=request.user.email, pay_price=price)
+            
             #print("order id"+str(o_id))
             request.session['o_id']=o_id
             
-
             
-            return redirect('order') 
+            
+            return redirect('order', o_id) 
         else:
             form = CreateQuestionnaireForm()
 

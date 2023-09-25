@@ -28,27 +28,40 @@ class Questionnaire(models.Model):
 
 
 
-class HighLevel(models.Model):
-    h_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=255)
-    is_active = models.BooleanField(default=False)
+class Exclussion(models.Model):
+    exclussion_id = models.AutoField(primary_key=True)
+    exclussion_name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    
+    
+
     #objectives - list
 
-class MediumLevel(models.Model):
-    m_id = models.CharField(max_length=255, blank=True)
-    name = models.CharField(max_length=255)
-    is_active = models.BooleanField(default=False)
-    description = models.TextField(blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    #objectives - list
 
-class LowLevel(models.Model):
-    l_id = models.CharField(max_length=255, blank=True)
-    name = models.CharField(max_length=255)
-    is_active = models.BooleanField(default=False)
-    description = models.TextField(blank=True, null=True)
+class Training(models.Model):
+    training_id = models.AutoField(primary_key=True)
+    text = models.TextField(blank=True, null=True)
+    email_user = models.EmailField(blank=True,null=True, default=None)
+    email_creator = models.EmailField(blank=True,null=True, default=None)
+    public = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    #objectives - list
+    #exercise_choice = models.ManyToManyField(blank=True)
 
+    #exercise_list = models.ManyToManyField(Exercise, default=None, null=True, blank=True)
+
+
+class Exercise(models.Model):
+    training = models.ForeignKey(Training , on_delete=models.CASCADE)
+    #training = models.ManyToManyField(Training)
+    exercise_id = models.AutoField(primary_key=True)
+    exercise_name = models.CharField(max_length=255)
+    is_active = models.BooleanField(default=False)
+    description = models.TextField(blank=True, null=True, help_text='how do this exercise')
+    exercise_alert = models.TextField(blank=True, null=True, help_text='attenion to')
+    exercise_url = models.URLField(blank=True, null=True, help_text='link to video')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    #exercise_line = models.ForeignKey(exercise_id, on_delete=models.CASCADE)
+
+    #def __str__(self):
+    #    return self.exercise_name

@@ -20,7 +20,7 @@ class UserProxyAdmin(admin.ModelAdmin):
     list_display = ['email','first_name', 'active_sub','first_step']
     fieldsets = [
         ('Base data', {
-            'fields':('email','first_name', 'last_name', 'phone_number')
+            'fields':('email','first_name', 'last_name', 'phone_number', 'city')
             }
         ),
         ('survey data', {
