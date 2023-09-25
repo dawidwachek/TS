@@ -51,6 +51,7 @@ class Order(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     item_order = models.ForeignKey('orders.Item', related_name="items", null=True, blank=True, on_delete=models.CASCADE)
     questionnaire_id = models.CharField(max_length=15, null=True, blank=True)
+    visible = models.BooleanField(default=True)
     
     #questionnaire_id = models.ForeignKey(Questionnaire, on_delete=models.CASCADE, related_name="questionnaire", null=True, blank=True)
     #test = models.ManyToManyField(Item, null=True, blank=True)

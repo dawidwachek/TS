@@ -33,7 +33,11 @@ def NewUserBot(user_id, user_email, user_name):
     new_account_webhook.execute()
 
 def HostBot():
-    embed = DiscordEmbed(title="Server Up!!", description="", color="00FF00")
-    embed.set_timestamp()
-    host_webhook.add_embed(embed)
-    host_webhook.execute()
+    host_start_stop = False
+    if host_start_stop:
+        embed = DiscordEmbed(title="Server Up!!", description="", color="00FF00")
+        embed.set_timestamp()
+        host_webhook.add_embed(embed)
+        host_webhook.execute()
+    else:
+        pass

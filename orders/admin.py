@@ -21,10 +21,12 @@ class OrderAdmin(admin.ModelAdmin):
             'fields':('original_price', 'name_coupon', 'pay_price')
         }),
         ('Edit data', {
-            'fields':('updated_at', 'editor_email')
+            'fields':('updated_at', 'editor_email', 'visible')
         }),
 
     ]
+    list_filter = ['order_status','visible']
+    search_fields = ['email_adress', 'order_id', 'name_coupon']
     
     #class Meta:
         #model=Order
